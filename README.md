@@ -10,3 +10,11 @@ Each microservice has a 'start.sh' and a 'start_gunicorn.sh' script - the first 
 There is also a config.sh that contains default configuration that can be overridden.
 
 A mongo db is expected to be running on localhost - soon this will be configurable
+
+To get the flickrservice running you will require the Python Pillow pip, which in turn depends on the following libraries:
+    yum install libjpeg zlib libtiff freetype freetype-devel littlecms libwebp openjpeg
+
+You will also need gcc to compile Pillow:
+    yum install gcc
+
+Though afterwards you should probably remove it, at least if you're running on production.
