@@ -24,6 +24,7 @@ log.addHandler(handler)
 
 
 debug = False
+
 def epr(s):
     app.logger.error(s)
     if(debug):

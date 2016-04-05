@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+. ../secrets.sh
 cd $( dirname $0 )
 if [[ ! -d ./venv ]];then
     rm -f ./venv

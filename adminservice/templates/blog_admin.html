@@ -111,7 +111,7 @@
                   <div><p>{{ blog.content|truncate(100) }}</p></div>
                   <div><strong>{{ blog.author }}</strong></div>
                   <div><em>First posted: {{ blog["created-date"] }}</em></div>
-                  <div><em>Updated: {{ blog["last-update-date"] }}</em></div>
+                  <div><em>Updated: {{ blog["last-update"] }}</em></div>
                   <div><button type="button" class="btn btn-info" data-toggle="modal" data-target="#update-{{blog.id}}-modal">Update Post</button> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#delete-{{blog.id}}-modal">Delete Post</button></div>
                   <div id="delete-{{blog.id}}-modal" class="modal fade well" role="dialog">
                     <div class="modal=content">
@@ -157,8 +157,8 @@
                             </fieldset>
                             <div>Tags: <input id="tags" type="text" value="{{ blog.tags }}" name="tags"></div>
                             <div>Content: <textarea id="content" class="input" name="content" rows="5">{{ blog.content }} </textarea></div>
-                            <div>Created date: {{ blog["last-update-date"] }}</div>
-                            <div>Last update: {{ blog["last-update-date"] }}</div>
+                            <div>Created date: {{ blog["created-date"] }}</div>
+                            <div>Last update: {{ blog["last-update"] }}</div>
                             <input id="{{blog.id}}" type="hidden" value="{{ blog.id }}" name="id">
                             <input id="update_blog_submit" type="submit" value="Update" name="submit" class="btn btn-primary" >
                           </form>

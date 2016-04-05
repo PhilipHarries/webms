@@ -31,7 +31,7 @@
             {% block content %}
               <div><h3>{{ album.desc }}</h3></div>
                 {% for photo in album.photos %}
-                  <div><a href="/image/flickr/{{ album.owner_id }}/{{album.id}}/{{photo.id}}/photo"><img src="{{ photo.thumbnail}}"></a>{{ photo.title }}</div>
+                  <div><a href="/image/flickr/{{ album.owner_id }}/{{album.id}}/{{photo.id}}/photo"><img src="/image/flickr/{{ album.owner_id }}/{{album.id}}/{{photo.id}}/thumbnail"></a>{{ photo.title }}</div>
                 {% endfor %}
 
             {% endblock %}

@@ -1,4 +1,5 @@
 from flask import Flask, abort, send_file, render_template, make_response, jsonify, request
+import os
 from flask.ext.pymongo import PyMongo
 from pymongo import MongoClient
 import logging, requests, cStringIO,mimetypes
@@ -13,14 +14,29 @@ from flask.ext.login import login_required
 
 debug = True
 
+def debug_print(s):
+    app.logger.debug(s)
+    if(debug):
+        print s
+
+def error_print(e):
+    app.logger.error(e)
+    if(debug):
+        print e
+
 handler = RotatingFileHandler('./logs/adminservice.log',maxBytes=40960,backupCount=3)
 handler.setLevel(logging.DEBUG)
 
 # set the project root directory as the static folder
 app = Flask(__name__, static_url_path='/static')
 
+
 app.config['DEBUG'] = True
-app.config['SECRET_KEY'] = 'do_not_guess_me'
+try:
+    app.config['SECRET_KEY'] = os.environ['ADMIN_SECRET']
+except KeyError as KE:
+    error_print("Bailing out: environment variable missing: {}".format(KE))
+    exit(1)
 
 app.logger.addHandler(handler)
 log = logging.getLogger('werkzeug')
@@ -44,15 +60,6 @@ def load_user(email_id):
     return User(user)
 
 
-def debug_print(s):
-    app.logger.debug(s)
-    if(debug):
-        print s
-
-def error_print(e):
-    app.logger.error(e)
-    if(debug):
-        print e
 
 # connect to mongo with defaults
 mongo = PyMongo(app)
@@ -130,7 +137,7 @@ def login():
         print(" user email: {}".format(user["email"]))
         #if user and User.verify_password(user['password'], form.password.data):
         if user and user['password'] == form.password.data:
-            user_obj = User(user['email'])
+            user_obj = User(user)
             debug_print(user)
             debug_print(user_obj)
             login_user(user_obj)

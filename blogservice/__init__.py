@@ -86,7 +86,7 @@ def create_blog():
         'content': request.json['content'],
         'description': request.json.get('description', ""),
         'tags': request.json.get('tags', ""),
-        'last-update-date': datetime.datetime.utcnow(),
+        'last-update': datetime.datetime.utcnow(),
         'created-date': datetime.datetime.utcnow(),
         'author': request.json.get('author', "")
         }
@@ -135,8 +135,6 @@ def update_blog(blog_id):
     if 'author' in request.json and type(request.json['author']) != unicode:
         epr("Did not provide author in request (or author not unicode)")
         abort(400)
-    blog['last-update'] = datetime.datetime.utcnow()
-    dpr("Set last-update to {}".format(blog['last-update']))
     for fieldname in ['title', 'description', 'content', 'tags', 'author']:
         blog[fieldname] = request.json.get(fieldname, blog[fieldname])
     result = mongo.db.blogs.update_one(
@@ -148,7 +146,7 @@ def update_blog(blog_id):
                 "content": blog["content"],
                 "tags": blog["tags"],
                 "author": blog["author"],
-                "last-update": blog["last-update"],
+                "last-update": datetime.datetime.utcnow(),
             }
         }
         )
