@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 cd $( dirname $0 )
+. ../secrets.sh
 [[ ! -d venv ]] && mkdir venv && virtualenv venv
 . venv/bin/activate
 [[ -f ./requirements.txt ]] && pip install -r ./requirements.txt
