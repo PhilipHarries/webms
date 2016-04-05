@@ -1,4 +1,4 @@
-#!/bin/ksh
+#!/usr/bin/env bash
 
 if [[ $# -ne 1 ]];then
     echo "Please specify $0 prod or $0 dev"

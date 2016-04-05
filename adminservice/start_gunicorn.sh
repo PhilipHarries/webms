@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 cd $( dirname $0 )
+[[ ! -d venv ]] && mkdir venv && virtualenv venv
 . venv/bin/activate
 [[ -f ./requirements.txt ]] && pip install -r ./requirements.txt
 [[ -f ./requirements_gunicorn.txt ]] && pip install -r ./requirements_gunicorn.txt
