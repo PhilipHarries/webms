@@ -137,7 +137,7 @@ def get_album(album_id):
 
 @app.route('/slideshow/<string:album_id>', methods=['GET'])
 def get_slideshow_default_chunk(album_id):
-    return redirect(url_for('get_slideshow',album_id=album_id,chunk_num=1,_external=True))
+    return redirect(url_for('get_slideshow',album_id=album_id,chunk_num=1,_external=False))
 
 
 @app.route('/slideshow/<string:album_id>/<int:chunk_num>', methods=['GET'])
