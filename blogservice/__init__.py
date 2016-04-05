@@ -6,7 +6,7 @@ import datetime
 
 app = Flask(__name__)
 
-handler = RotatingFileHandler('logs/blogservice_run.log',maxBytes=40960,backupCount=3)
+handler = RotatingFileHandler('logs/blogservice.log',maxBytes=40960,backupCount=3)
 handler.setLevel(logging.DEBUG)
 app.logger.addHandler(handler)
 log = logging.getLogger('werkzeug')
@@ -64,6 +64,7 @@ def bad_request(error):
 def get_blogs():
     blogs=[]
     cursor=mongo.db.blogs.find()
+    cursor.sort("created-date", 1)
     for blog in cursor:
         dpr("Found blog {}".format(blog))
         blogs.append(blog)

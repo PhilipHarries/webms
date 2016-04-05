@@ -2,4 +2,3 @@ flickrservice - cache info appears in albums list
 all - several "Exception" catches - should be catching named error types
 config.sh - mongo details should go in config.sh
 adminservice - login password validation is plaintext(!)
-adminservice - blog sort order is by last-update, should be by created-date
