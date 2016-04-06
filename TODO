@@ -3,3 +3,5 @@ all - several "Exception" catches - should be catching named error types
 config.sh - mongo details should go in config.sh
 adminservice - login password validation is plaintext(!)
 blogservice - tag functionality is vestigial
+all - no consistent navigation menus
+all - no testing - get some tests in and running with travis

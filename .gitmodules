@@ -1,0 +1,3 @@
+[submodule "webms-frontendservice"]
+	path = frontendservice
+	url = https://github.com/PhilipHarries/webms-frontendservice.git
