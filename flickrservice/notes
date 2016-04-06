@@ -1,3 +1,0 @@
-Is timestamp being updated?
-
-Don't properly check existence of an album before bringing in another, it seems

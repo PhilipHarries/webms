@@ -1,3 +1,15 @@
 [submodule "webms-frontendservice"]
 	path = frontendservice
 	url = https://github.com/PhilipHarries/webms-frontendservice.git
+[submodule "webms-adminservice"]
+	path = adminservice
+	url = https://github.com/PhilipHarries/webms-adminservice.git
+[submodule "webms-blogservice"]
+	path = blogservice
+	url = https://github.com/PhilipHarries/webms-blogservice.git
+[submodule "webms-flickrservice"]
+	path = flickrservice
+	url = https://github.com/PhilipHarries/webms-flickrservice.git
+[submodule "webms-twitterservice"]
+	path = twitterservice
+	url = https://github.com/PhilipHarries/webms-twitterservice.git

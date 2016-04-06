@@ -1,7 +1,0 @@
-requests
-Flask-script
-flickr-api
-pytz
-Flask-PyMongo
-Pillow
-python-dateutil
